@@ -156,29 +156,17 @@ unsigned int packetize_sf(const char *message, unsigned char *packets[], unsigne
 		}
         //srcAdd
         unsigned long tempSrcAddr = src_addr;
-        packets[i][4]=tempSrcAddr&0xff;
-        tempSrcAddr>>=8;
-        packets[i][3]=tempSrcAddr&0xff;
-        tempSrcAddr>>=8;
-        packets[i][2]=tempSrcAddr&0xff;
-        tempSrcAddr>>=8;
-        packets[i][1]=tempSrcAddr&0xff;
-        tempSrcAddr>>=8;
-        packets[i][0]=tempSrcAddr&0xff;
-        tempSrcAddr>>=8;
+       for(int j = 4; j>=0,j--){
+            packets[i][j]=tempChecksum&0xff;
+            tempChecksum>>=8;
+        }
     
         //destAdd
         unsigned long tempDestAddr = dest_addr;
-        packets[i][9]=tempDestAddr&0xff;
-        tempDestAddr>>=8;
-        packets[i][8]=tempDestAddr&0xff;
-        tempDestAddr>>=8;
-        packets[i][7]=tempDestAddr&0xff;
-        tempDestAddr>>=8;
-        packets[i][6]=tempDestAddr&0xff;
-        tempDestAddr>>=8;
-        packets[i][5]=tempDestAddr&0xff;
-        tempDestAddr>>=8;
+       for(int j = 9; j>=5,j--){
+            packets[i][j]=tempChecksum&0xff;
+            tempChecksum>>=8;
+        }
 
         //srcPort
         packets[i][10]=32;
@@ -188,26 +176,25 @@ unsigned int packetize_sf(const char *message, unsigned char *packets[], unsigne
 
         //fragOff
         unsigned long tempIdx= payloadIdx;
-        packets[i][14]=tempIdx&0xff;
-        tempIdx>>=8;
-        packets[i][13]=tempIdx&0xff;
-        tempIdx>>=8;
-        packets[i][12]=tempIdx&0xff;;
+      for(int j = 14; j>=12,j--){
+            packets[i][j]=tempChecksum&0xff;
+            tempChecksum>>=8;
+        }
 
         //flag
         unsigned int tempFlags = flags;
-        packets[i][16]=tempFlags&0xff;
-        tempFlags>>=8;
-        packets[i][15]=tempFlags&0xff;
+        for(int j = 16; j>=15,j--){
+            packets[i][j]=tempChecksum&0xff;
+            tempChecksum>>=8;
+        }
 
         //totalLength
         unsigned long tempSize = payloadSize + headerSize;
-        packets[i][19]=tempSize&0xff;
-        tempSize>>=8;
-        packets[i][18]=tempSize&0xff;
-        tempSize>>=8;
-        packets[i][17]=tempSize&0xff;
-        tempSize>>=8;
+        for(int j = 19; j>=17,j--){
+            packets[i][j]=tempChecksum&0xff;
+            tempChecksum>>=8;
+        }
+       
 
         //checksum
         unsigned int tempChecksum = checksum_sf(packets[i]);
