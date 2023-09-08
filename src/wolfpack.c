@@ -211,19 +211,12 @@ unsigned int packetize_sf(const char *message, unsigned char *packets[], unsigne
 
         //checksum
         unsigned int tempChecksum = checksum_sf(packets[i]);
-        packets[i][23]=tempChecksum&0xff;
-        tempChecksum>>=8;
-        packets[i][22]=tempChecksum&0xff;
-        tempChecksum>>=8;
-        packets[i][21]=tempChecksum&0xff;
-        tempChecksum>>=8;
-        packets[i][20]=tempChecksum&0xff;
-        tempChecksum>>=8;
-
-		
-        for(unsigned int j =0;j<payloadSize;j++){
-            packets[i][headerSize + j] = message[payloadIdx+j];
+        for(int j = 23; j>=20,j--){
+            packets[i][j]=tempChecksum&0xff;
+            tempChecksum>>=8;
         }
+    
+        memcpy(&packets[i][headerSize].&message[payloadIdx], payloadSize)
 		payloadIdx += payloadSize;  
 	}
 	return numPackets;
