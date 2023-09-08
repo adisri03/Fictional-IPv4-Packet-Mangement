@@ -1,6 +1,7 @@
 # WolfPack Network Protocol
 
-![WolfPack Logo](wolfpack_logo.png)
+![C](https://img.shields.io/badge/C-8%2B-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ## Table of Contents
 
