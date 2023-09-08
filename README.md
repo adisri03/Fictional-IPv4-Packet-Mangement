@@ -1,6 +1,6 @@
 # IPv4-Packets
 
-What is IPv4 Packets?
+What are IPv4 Packets?
 
 IPv4 packets are the fundamental units of data transmitted over the Internet using the Internet Protocol version 4. They consist of a header and payload. The header contains information such as source and destination IP addresses, packet length, and other control details, while the payload carries the actual data being transmitted, such as web content or email messages. IPv4 packets are a core component of the global Internet's communication infrastructure, although they are gradually being replaced by the newer IPv6 protocol to accommodate the growing number of Internet-connected devices.
 
