@@ -21,10 +21,10 @@
 
 This repository contains an implementation of the WolfPack network protocol, a fictional network protocol with specific packet formatting and processing requirements. The assignment includes four main parts, each implemented in its respective source file:
 
-1. `print_packet_sf.c`: Printing the fields and payload of a WolfPack network packet.
-2. `checksum_sf.c`: Computing a packet's checksum.
-3. `reconstruct_sf.c`: Reconstructing a message sent as a series of WolfPack packets.
-4. `packetize_sf.c`: Packetizing a message into WolfPack packets.
+1. Print WolfPack packet fields and payload.
+2.Compute and return packet checksum.
+3.Reconstruct messages from packets with validation.
+4.Divide messages into WolfPack packets.
 
 Please follow the instructions below to get started and use these functions.
 
@@ -40,6 +40,17 @@ To compile and run this project, you need:
 ### Installation
 
 1. Clone the repository to your local machine:
-
 ```bash
 git clone https://github.com/your-username/wolfpack-network-protocol.git
+```
+2. Navigate to the Project Directory:
+```bash
+cd wolfpack-assignment
+```
+3. Compile the Code:
+
+4. 
+
+
+
+
